@@ -15,8 +15,7 @@ public class User {
   private final String creationDate;
   private final Role role;
 
-  public User(String name, String surname, String birthDate, String username, String password,
-      String id, Role role) {
+  public User(String name, String surname, String birthDate, String username, String password, Role role, String id) {
     this.name = name;
     this.surname = surname;
     this.birthDate = birthDate;
