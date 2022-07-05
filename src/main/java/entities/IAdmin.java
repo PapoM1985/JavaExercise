@@ -5,11 +5,11 @@ import utils.Role;
 
 public interface IAdmin {
 
-  Optional<User> findByUsername(String username);
-  void insertUser(String name, String surname, String birthDate, String username,
-      String password, Role role) throws Exception;
+  void findByUsername(String username) throws Exception;
+  void insertUser(User userConnected, String name, String surname, String birthDate, String username,
+      String password, Role role);
 
-  void updatePassword(User user,String newPassword);
+  void updatePassword(User userConnected, User user, String newPassword);
 
   void printUser(User user) ;
   void printAllDBUser();

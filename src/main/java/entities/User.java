@@ -9,8 +9,8 @@ public class User {
   private String name;
   private String surname;
   private String birthDate;
-  private final String username;
   private String password;
+  private final String username;
   private final String id;
   private final String creationDate;
   private final Role role;
