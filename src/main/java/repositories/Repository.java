@@ -1,8 +1,10 @@
 package repositories;
 
 import entities.User;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -19,13 +21,13 @@ public class Repository {
   }
 
   public Optional<User> findByUsername(String username) {
-    return database.values().stream().filter(l -> l.getUsername().equals(username)).findFirst();
-    /*    for (User user : database.values()) {
+//    return database.values().stream().filter(l -> l.getUsername().equals(username)).findAny();
+        for (User user : database.values()) {
       if (user.getUsername().equals(username)) {
         return Optional.of(user);
       }
     }
-    return Optional.empty();*/
+    return Optional.empty();
   }
 
   public void insertUser(String name, String surname, String birthDate, String username,
@@ -50,8 +52,9 @@ public class Repository {
     return randomString;
   }
 
-  public ArrayList<User> values() {
-    ArrayList<User> valueOnly = new ArrayList<>();
+  public List<User> values() {
+    List<User> valueOnly = new ArrayList<>();
+
     for (User user: database.values()){
       valueOnly.add(user);
     }
@@ -59,16 +62,17 @@ public class Repository {
   }
 
   public void generateUser() {
-    User s1 = new User("Franco","Rossi","01012022","frossi","", Role.STANDARD, "");
-    User s2 = new User("valerio","Rossi","01012022","frossi","", Role.ADMIN, "");
-    User s3 = new User("Giulio","Rossi","01012022","frossi","", Role.STANDARD, "");
-    User s4 = new User("Pippo","Rossi","01012022","frossi","", Role.STANDARD, "");
-    User s5 = new User("Pluto","Rossi","01012022","frossi","", Role.STANDARD, "");
-    User s6 = new User("Paperino","Rossi","01012022","frossi","", Role.STANDARD, "");
-    User s7 = new User("Clarabella","Rossi","01012022","frossi","", Role.STANDARD, "");
-    User s8 = new User("Roberto","Rossi","01012022","frossi","", Role.STANDARD, "");
-    User s9 = new User("John","Rossi","01012022","frossi","", Role.STANDARD, "");
-    User s10 = new User("Gigi","Rossi","01012022","frossi","", Role.STANDARD, "");
+    User s1 = new User("Franco","Rossi","01012022","frossi","1234", Role.STANDARD, "1");
+    User s2 = new User("Gestore","Admin","01012022","vblu","1234", Role.ADMIN, "2");
+    User s3 = new User("Giulio","Rossi","01012022","gneri",generateRandomId(), Role.STANDARD, "3");
+    User s4 = new User("Pippo","Rossi","01012022","pverdi",generateRandomId(), Role.STANDARD, "4");
+    User s5 = new User("Pluto","Rossi","01012022","pmarroni",generateRandomId(), Role.STANDARD, "5");
+    User s6 = new User("Paperino","Rossi","01012022","pgialli",generateRandomId(), Role.STANDARD, "6");
+    User s7 = new User("Clarabella","Rossi","01012022","cbianchi",generateRandomId(), Role.STANDARD, "7");
+    User s8 = new User("Roberto","Rossi","01012022","rarancioni",generateRandomId(), Role.STANDARD, "8");
+    User s9 = new User("John","Rossi","01012022","jviola",generateRandomId(), Role.STANDARD, "9");
+    User s10 = new User("Gigi","Rossi","01012022","grosa",generateRandomId(), Role.STANDARD, "10");
+
     database.put(s1.getId(),s1);
     database.put(s2.getId(),s2);
     database.put(s3.getId(),s3);

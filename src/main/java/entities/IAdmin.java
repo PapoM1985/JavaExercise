@@ -5,7 +5,7 @@ import utils.Role;
 
 public interface IAdmin {
 
-  void findByUsername(String username) throws Exception;
+  Optional<User> findByUsername(String username) throws Exception;
   void insertUser(User userConnected, String name, String surname, String birthDate, String username,
       String password, Role role);
 
